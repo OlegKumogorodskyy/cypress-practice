@@ -1,14 +1,15 @@
 /// <reference types="cypress" />
 
 describe("Social Links Verification", () => {
-  it("Facebook link should have the correct href", () => {
+  beforeEach(() => {
     cy.visit("https://qauto.forstudy.space", {
       auth: {
         username: "guest",
         password: "welcome2qauto",
       },
     });
-
+  });
+  it("Facebook link should have the correct href", () => {
     cy.get("a.socials_link")
       .eq(0)
       .invoke("attr", "href")
@@ -16,13 +17,6 @@ describe("Social Links Verification", () => {
   });
 
   it("Telegram link should have the correct href", () => {
-    cy.visit("https://qauto.forstudy.space", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
-
     cy.get("a.socials_link")
       .eq(1)
       .invoke("attr", "href")
@@ -30,13 +24,6 @@ describe("Social Links Verification", () => {
   });
 
   it("Youtube link should have the correct href", () => {
-    cy.visit("https://qauto.forstudy.space", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
-
     cy.get("a.socials_link")
       .eq(2)
       .invoke("attr", "href")
@@ -44,13 +31,6 @@ describe("Social Links Verification", () => {
   });
 
   it("Instagram link should have the correct href", () => {
-    cy.visit("https://qauto.forstudy.space", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
-
     cy.get("a.socials_link")
       .eq(3)
       .invoke("attr", "href")
@@ -58,13 +38,6 @@ describe("Social Links Verification", () => {
   });
 
   it("LinkedIn link should have the correct href", () => {
-    cy.visit("https://qauto.forstudy.space", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
-
     cy.get("a.socials_link")
       .eq(4)
       .invoke("attr", "href")
@@ -72,28 +45,14 @@ describe("Social Links Verification", () => {
   });
 
   it('Clicking on "Sign In" button opens the login form', () => {
-    cy.visit("https://qauto.forstudy.space", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
-
     cy.contains("Sign In").click();
-    cy.get(".modal-title").should("be.visible");  
-    //Searches for the "Log in" title on the opening login form 
+    cy.get(".modal-title").should("be.visible");
+    //Searches for the "Log in" title on the opening login form
   });
 
   it('Clicking on "Sign Up" button opens the registration form', () => {
-    cy.visit("https://qauto.forstudy.space", {
-      auth: {
-        username: "guest",
-        password: "welcome2qauto",
-      },
-    });
-
     cy.contains("Sign up").click();
-    cy.get(".modal-title").should("be.visible");  
+    cy.get(".modal-title").should("be.visible");
     //Searches for the "Registration" title on the opening registration form
   });
 });
